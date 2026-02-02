@@ -4,3 +4,10 @@
     height:50px;
     background-color:aqua
 }
+
+
+li{
+    width=300px;
+    background-color:cadetblue;
+    display:flex
+}

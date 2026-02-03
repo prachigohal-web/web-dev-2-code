@@ -97,28 +97,71 @@
 //             count+=1
 // },1000)
 
-const timerId=setInterval(()=>{
-    console.log("after 3 sec")
-},1000)
-console.log(timerId)
-settimeout(()=>{
-    clearInterval(timerId)
-},10*1000);
+// const timerId=setInterval(()=>{
+//     console.log("after 3 sec")
+// },10)
+// console.log(timerId)
+// settimeout(()=>{
+//     clearInterval(timerId)
+// },10*1000);
     
-const name=document.querySelector("#name")
-const btn=document.querySelector(".btn")
-const lst=document.querySelector(".lst")
+// const name=document.querySelector("#name")
+// const btn=document.querySelector(".btn")
+// const lst=document.querySelector(".lst")
 
-btn.addEventListener('click',()=>{
-    const li=document.createDocumentFragment('li')
-    const dlt=document.createDocumentFragment('li')
 
-    dlt.innertext="delete"
-    li.innertext=name.value;
-    dlt.addEventListener('click',())
-    li.appendchild(li)
-    li.appendchild(dlt)
-    
-    FileList.appendchild(li)
-    name.value=""
+// console.log("starting homework..")
+// set timeout(()=>{
+//     console.log("homework done!");
+//     console.log("starting dinner");
+// set timeout(()=>{
+//     console.log("dinner done");
+//     console.log("getting ready to go out");
+// set timeout(()=>{
+//     console.log("go to playground");
+// },1000);    
+// },1500);   
+// }2000);
+
+// function funishhomework(callback){
+//     console.log("starting homework")
+//     set timeout(()=>{
+//         console.log("homework done!");
+//         callback()
+//     },2000);
+// }
+// function eatdinner(callback){
+//     console.log("starting dinner..");
+//     set timeout(()=>{
+//         console.log("dinner done!");
+//         callback();
+//     },1500);
+// }
+// function goToPlayground(){
+//     console.log("going to the playground")
+// }
+// finishhomework(()=>{
+//     eatdinner(()=>{
+//         goToPlayground();
+//     });
+// });
+
+const p=new promise((res,rej)=>{
+    let done=false
+    settimeout(()=>{
+        if (done){
+            res("work is done!!")
+        }else{
+            rej("work is not done")
+        }
+    },5000)
 })
+console.log(p)
+p.then((msg)=>{
+    console.log(msg)
+}).catch((err)=>{
+    console.log(err)
+}).finally(()=>{
+    console.log("finally")
+})
+console.log(p)

@@ -146,22 +146,88 @@
 //     });
 // });
 
-const p=new promise((res,rej)=>{
-    let done=false
-    settimeout(()=>{
-        if (done){
-            res("work is done!!")
-        }else{
-            rej("work is not done")
-        }
-    },5000)
-})
-console.log(p)
-p.then((msg)=>{
+// const p=new promise((res,rej)=>{
+//     let done=false
+//     settimeout(()=>{
+//         if (done){
+//             res("work is done!!")
+//         }else{
+//             rej("work is not done")
+//         }
+//     },5000)
+// })
+// console.log(p)
+// p.then((msg)=>{
+//     console.log(msg)
+// }).catch((err)=>{
+//     console.log(err)
+// }).finally(()=>{
+//     console.log("finally")
+// })
+// console.log(p)
+
+function dohomework(){
+    const p=new Promise((res,rej)=>{
+        settimeout(()=>{
+            let done=true
+            if(done){
+                console.log("homework is done")
+                res("homework complete")
+            }else{
+            
+                rej("homework not complete")
+            }
+        },2000)
+    
+ 
+    })
+    return p
+}
+    
+function eatdinner(){
+    const p=new Promise((res,rej)=>{
+        settimeout(()=>{
+            let done=true
+            if(done){
+                console.log("dinner is done")
+                res("dinner complete")
+            }else{
+            
+                rej("dinner not complete")
+            }
+        },2000)
+        
+    })
+    return p
+}
+
+function gotoplayground(){
+    const p=new Promise((res,rej)=>{
+        settimeout(()=>{
+            let done=true
+            if(done){
+                console.log("went to playground")
+                res("playground time")
+            }else{
+            
+                rej("not allowed")
+            }
+        },2000)
+        
+    })
+    return p
+}
+dohomework().then((msg)=>{
+    console.log(msg)
+    return eatdinner()
+}).then((msg)=>{
+    console.log(msg)
+    return gotoplayground()
+}).then((msg)=>{
     console.log(msg)
 }).catch((err)=>{
     console.log(err)
 }).finally(()=>{
-    console.log("finally")
+    console.log("go to sleep")
 })
-console.log(p)
+

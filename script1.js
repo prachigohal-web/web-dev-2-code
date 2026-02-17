@@ -166,68 +166,198 @@
 // })
 // console.log(p)
 
-function dohomework(){
-    const p=new Promise((res,rej)=>{
-        settimeout(()=>{
-            let done=true
-            if(done){
-                console.log("homework is done")
-                res("homework complete")
-            }else{
+// function dohomework(){
+//     const p=new Promise((res,rej)=>{
+//         settimeout(()=>{
+//             let done=true
+//             if(done){
+//                 console.log("homework is done")
+//                 res("homework complete")
+//             }else{
             
-                rej("homework not complete")
-            }
-        },2000)
+//                 rej("homework not complete")
+//             }
+//         },2000)
     
  
-    })
-    return p
-}
+//     })
+//     return p
+// }
     
-function eatdinner(){
-    const p=new Promise((res,rej)=>{
-        settimeout(()=>{
-            let done=true
-            if(done){
-                console.log("dinner is done")
-                res("dinner complete")
-            }else{
+// function eatdinner(){
+//     const p=new Promise((res,rej)=>{
+//         settimeout(()=>{
+//             let done=true
+//             if(done){
+//                 console.log("dinner is done")
+//                 res("dinner complete")
+//             }else{
             
-                rej("dinner not complete")
-            }
-        },2000)
+//                 rej("dinner not complete")
+//             }
+//         },2000)
         
+//     })
+//     return p
+// }
+
+// function gotoplayground(){
+//     const p=new Promise((res,rej)=>{
+//         settimeout(()=>{
+//             let done=true
+//             if(done){
+//                 console.log("went to playground")
+//                 res("playground time")
+//             }else{
+            
+//                 rej("not allowed")
+//             }
+//         },2000)
+        
+//     })
+//     return p
+// }
+// dohomework().then((msg)=>{
+//     console.log(msg)
+//     return eatdinner()
+// }).then((msg)=>{
+//     console.log(msg)
+//     return gotoplayground()
+// }).then((msg)=>{
+//     console.log(msg)
+// }).catch((err)=>{
+//     console.log(err)
+// }).finally(()=>{
+//     console.log("go to sleep")
+// })
+
+const form=document.queryselector('.form')
+
+form.addeventlistener('submit',(e)=>{
+    e.preventdefault()
+    console.log(eventtitle.value)
+    console.log(eventdate.value)
+    console.log(category.value)
+    console.log(description.value)
+   
+
+
+let title=eventtitle.value
+let date=eventdate.value
+let cat=category.value
+let desc=description.
+
+const card=document.createElement('div')
+card.classList.add('card')
+card.innerhtml=`
+     <h3>${title}</h3>
+     <p>${date}</p>
+     <button>${cat}</button>
+     <p>${desc}</p>   
+     <div class="dlt">x</div>  
+`
+
+     eventcards.appendchild(card)
+     const dlt=card.queryselector('.dlt')
+     dlt.addEventlistener('click',()=>{
+          card.remove()
+     })
+})  
+     document.addeventlistener('keydown',(e)=>{
+        console.log(e.key)
+})
+
+document.queryselector('clearall').addeventlistener('click',()=>{
+     document.querySelectorAll('.card').forEach((card)=>{
+          card.remove()
+     })
+})
+
+function orderFood(){
+    return new Promise((res,rej)=>{
+        settimeout(()=>{
+            console.log("food ordered")
+            res()
+        },2000)
     })
-    return p
 }
 
-function gotoplayground(){
-    const p=new Promise((res,rej)=>{
+function orderFood(){
+    return new Promise((res,rej)=>{
         settimeout(()=>{
-            let done=true
-            if(done){
-                console.log("went to playground")
-                res("playground time")
-            }else{
-            
-                rej("not allowed")
-            }
+            console.log("food prepared")
+            res()
         },2000)
-        
     })
-    return p
 }
-dohomework().then((msg)=>{
-    console.log(msg)
-    return eatdinner()
-}).then((msg)=>{
-    console.log(msg)
-    return gotoplayground()
-}).then((msg)=>{
-    console.log(msg)
+
+function orderFood(){
+    return new Promise((res,rej)=>{
+        settimeout(()=>{
+            console.log("food delivered")
+            res()
+        },2000)
+    })
+}
+
+async function order(){
+    const data=await orderFood()
+    console.log(data)
+    await prepareFood()
+    await deliverFood()
+
+}
+order()
+
+
+orderFood().then((data)=>{
+    return preparefood()
+}).then((data)=>{
+    return deliverfood()
 }).catch((err)=>{
-    console.log(err)
-}).finally(()=>{
-    console.log("go to sleep")
+    console.log("something went wrong")
 })
+
+console.log("first line")
+
+try{
+//    console.log(sample)
+//    console.log("line after sample")
+      let age=14
+      if (age<18){
+        throw new error("you are not eligible to vote")
+        // console.log("line after throw")
+        // 
+        // 
+
+      }
+        // 
+}catch(e){                    
+
+    console.warn(e)
+}
+console.log("last line")
+
+
+async function getdata(){
+    try{
+          const response=await fetch()
+    const data=await response.json("https://dummyjson.com/products")
+    if(response.ok==false){
+        throw new error("something went wrong")
+    }    
+    console.log(response)
+    const data=await response.json()
+    console.log(data)
+    // console.log(data.products[0].title)
+    data.product.forEach((product) => {
+    console.log(product.title)     
+    })
+    }catch(err){
+        console.log(err)
+    }finally(err){
+        console.log("finally block")
+    }
+}
+getdata()
 
